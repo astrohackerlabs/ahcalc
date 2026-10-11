@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# Prefer compiled dist/ahcalc when present, else bun cli.ts.
+# Do not set AHCALC_SERVER_BIN — the product binary self-spawns with --server.
+set -euo pipefail
+ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+cd "$ROOT"
+if [[ -x "$ROOT/dist/ahcalc" ]]; then
+  exec "$ROOT/dist/ahcalc" "$@"
+fi
+exec bun "$ROOT/cli.ts" "$@"

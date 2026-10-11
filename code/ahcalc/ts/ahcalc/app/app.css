@@ -1,0 +1,117 @@
+@import "tailwindcss";
+@source "../../../../astrohacker/ts/ui/src";
+@import "@astrohacker/ui/styles.css";
+
+/*
+ * Ahcalc app-only styles (tokens/theme live in @astrohacker/ui).
+ */
+body {
+  margin: 0;
+  min-height: 100dvh;
+  background: var(--ah-background);
+  color: var(--ah-foreground);
+  font-family: var(--font-mono);
+}
+
+.ahcalc-keypad {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.ahcalc-display {
+  grid-column: 1 / -1;
+  font-family: var(--font-mono);
+  font-size: 2rem;
+  font-weight: 600;
+  text-align: right;
+  padding: 16px 18px;
+  border-radius: var(--radius);
+  border: 1px solid var(--ah-border);
+  background: rgba(6, 6, 8, 0.85);
+  color: var(--ah-foreground);
+  min-height: 3.5rem;
+  letter-spacing: 0.04em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ahcalc-key {
+  appearance: none;
+  font: inherit;
+  font-family: var(--font-mono);
+  font-size: 1.05rem;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: var(--radius);
+  border: 1px solid var(--ah-border);
+  background: color-mix(
+    in srgb,
+    var(--ah-background-highlight) 90%,
+    transparent
+  );
+  color: var(--ah-foreground);
+  padding: 14px 8px;
+  min-height: 48px;
+  transition:
+    background 120ms ease,
+    box-shadow 120ms ease;
+}
+
+.ahcalc-key:hover,
+.ahcalc-key:focus-visible {
+  background: rgba(58, 66, 98, 0.95);
+  outline: none;
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--ah-primary) 45%, transparent);
+}
+
+.ahcalc-key--op {
+  color: var(--ah-primary);
+  border-color: color-mix(in srgb, var(--ah-primary) 40%, var(--ah-border));
+}
+
+.ahcalc-key--fn {
+  color: var(--ah-accent);
+}
+
+.ahcalc-key--eq {
+  background: color-mix(
+    in srgb,
+    var(--ah-primary) 35%,
+    var(--ah-background-highlight)
+  );
+  color: var(--ah-primary-foreground);
+  border-color: var(--ah-primary);
+}
+
+/* TermSurf per-client close (×) — brand-exact */
+.ahcalc-exit {
+  appearance: none;
+  flex: 0 0 auto;
+  width: 2rem;
+  height: 2rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--ah-border);
+  background: rgba(247, 118, 142, 0.12);
+  color: var(--ah-danger);
+  font-size: 1.25rem;
+  line-height: 1;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.ahcalc-exit:hover,
+.ahcalc-exit:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--ah-ring);
+}
+
+.ahcalc-exit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.ahcalc-exit-err {
+  display: none;
+}

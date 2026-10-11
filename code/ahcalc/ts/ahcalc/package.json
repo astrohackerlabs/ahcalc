@@ -1,0 +1,57 @@
+{
+  "name": "@astrohacker/ahcalc",
+  "version": "0.4.3",
+  "private": true,
+  "type": "module",
+  "packageManager": "bun@1.4.2",
+  "scripts": {
+    "dev": "react-router dev --port 3460 --host 127.0.0.1",
+    "build": "react-router build",
+    "start": "react-router-serve ./build/server/index.js",
+    "cli": "bun cli.ts",
+    "server": "bun cli.ts --server",
+    "build:ahcalc": "bun scripts/build-ahcalc.ts",
+    "test": "bun test ./app",
+    "test:integration": "bun --no-env-file test test/*.integration.test.ts",
+    "test:lifecycle": "bun scripts/lifecycle-matrix.mjs ./dist/ahcalc",
+    "test:compiled-server": "bun scripts/compiled-server-probe.mjs",
+    "typecheck": "react-router typegen && tsc --noEmit -p tsconfig.browser.json && tsc --noEmit -p tsconfig.runtime.json",
+    "lint": "oxlint --config ../../../oxlint.config.ts --deny-warnings .",
+    "lint:fix": "oxlint --config ../../../oxlint.config.ts --deny-warnings --fix .",
+    "format": "oxfmt --threads 1 --config oxfmt.config.mjs --ignore-path ../../../.prettierignore --ignore-path .prettierignore --write .",
+    "format:check": "oxfmt --threads 1 --config oxfmt.config.mjs --ignore-path ../../../.prettierignore --ignore-path .prettierignore --check ."
+  },
+  "bin": {
+    "ahcalc": "./dist/ahcalc"
+  },
+  "dependencies": {
+    "@astrohacker/ui": "workspace:*",
+    "@react-router/node": "^8",
+    "@react-router/serve": "^8",
+    "@webbuf/numbers": "workspace:^",
+    "@webbuf/rw": "workspace:^",
+    "@webbuf/webbuf": "workspace:^",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "isbot": "^5.2.2",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "react-router": "^8",
+    "tailwind-merge": "^3.7.0"
+  },
+  "devDependencies": {
+    "@react-router/dev": "^8",
+    "@tailwindcss/vite": "^4.2.2",
+    "@types/bun": "^1.4.2",
+    "@types/node": "^26.6.4",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "oxfmt": "0.72.0",
+    "tailwindcss": "^4.2.2",
+    "typescript": "7.0.2",
+    "vite": "^8.3.3",
+    "vite-tsconfig-paths": "^6",
+    "oxlint": "1.87.0",
+    "oxlint-tsgolint": "7.0.2003"
+  }
+}

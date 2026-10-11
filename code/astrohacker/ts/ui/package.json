@@ -1,0 +1,52 @@
+{
+  "name": "@astrohacker/ui",
+  "version": "0.0.0",
+  "type": "module",
+  "dependencies": {
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "lucide-react": "^1.52.0",
+    "radix-ui": "^1.7.0",
+    "remark-gfm": "^4.0.1",
+    "remark-parse": "^11.0.0",
+    "remark-smartypants": "^3.0.3",
+    "tailwind-merge": "^3.7.0",
+    "unified": "^11.0.5"
+  },
+  "peerDependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "tailwindcss": "^4.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@types/node": "^26.6.4",
+    "@types/bun": "^1.4.2",
+    "vite": "^8.3.3",
+    "typescript": "7.0.2",
+    "oxfmt": "0.72.0",
+    "oxlint": "1.87.0",
+    "oxlint-tsgolint": "7.0.2003"
+  },
+  "scripts": {
+    "format": "oxfmt --threads 1 --config oxfmt.config.mjs --ignore-path ../../../.prettierignore --write .",
+    "format:check": "oxfmt --threads 1 --config oxfmt.config.mjs --ignore-path ../../../.prettierignore --check .",
+    "lint": "oxlint --config ../../../oxlint.config.ts --deny-warnings .",
+    "lint:fix": "oxlint --config ../../../oxlint.config.ts --deny-warnings --fix .",
+    "typecheck": "tsc --noEmit"
+  },
+  "exports": {
+    "./utils": "./src/utils.ts",
+    "./surfaces": "./src/surfaces.ts",
+    "./styles.css": "./src/styles/styles.css",
+    "./package.json": "./package.json",
+    "./button": "./src/components/button.tsx",
+    "./popover": "./src/components/popover.tsx",
+    "./toggle-group": "./src/components/toggle-group.tsx",
+    "./space-rain": "./src/components/space-rain.tsx",
+    "./motion-mode": "./src/components/motion-mode/index.ts",
+    "./motion-menu": "./src/components/motion-menu.tsx"
+  },
+  "license": "MIT"
+}

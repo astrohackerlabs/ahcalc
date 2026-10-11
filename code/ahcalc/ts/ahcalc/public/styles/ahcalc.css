@@ -1,0 +1,130 @@
+/* Tokyo Night dark tokens (parity with website-rr Layer A) */
+:root {
+  color-scheme: dark;
+  --ah-background: #111219;
+  --ah-background-dark: #060608;
+  --ah-background-highlight: #292e42;
+  --ah-foreground: #c0caf5;
+  --ah-foreground-dark: #a9b1d6;
+  --ah-primary: #7aa2f7;
+  --ah-primary-foreground: #111219;
+  --ah-secondary: #bb9af7;
+  --ah-accent: #7dcfff;
+  --ah-success: #9ece6a;
+  --ah-warning: #e8a84a;
+  --ah-danger: #f7768e;
+  --ah-muted: #9aa5ce;
+  --ah-border: #3b4261;
+  --ah-ring: #7aa2f7;
+  --radius: 0.5rem;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+}
+
+.font-heading {
+  font-family: "Space Grotesk", system-ui, sans-serif;
+}
+
+.ahcalc-keypad {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.ahcalc-display {
+  grid-column: 1 / -1;
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 2rem;
+  font-weight: 600;
+  text-align: right;
+  padding: 16px 18px;
+  border-radius: var(--radius);
+  border: 1px solid var(--ah-border);
+  background: rgba(6, 6, 8, 0.85);
+  color: var(--ah-foreground);
+  min-height: 3.5rem;
+  letter-spacing: 0.04em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ahcalc-key {
+  appearance: none;
+  font: inherit;
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 1.05rem;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: var(--radius);
+  border: 1px solid var(--ah-border);
+  background: color-mix(
+    in srgb,
+    var(--ah-background-highlight) 90%,
+    transparent
+  );
+  color: var(--ah-foreground);
+  padding: 14px 8px;
+  min-height: 48px;
+  transition:
+    background 120ms ease,
+    box-shadow 120ms ease;
+}
+
+.ahcalc-key:hover,
+.ahcalc-key:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--ah-ring);
+}
+
+.ahcalc-key--op {
+  background: rgba(122, 162, 247, 0.18);
+  color: var(--ah-primary);
+  border-color: rgba(122, 162, 247, 0.45);
+}
+
+.ahcalc-key--fn {
+  background: rgba(187, 154, 247, 0.12);
+  color: var(--ah-secondary);
+  border-color: rgba(187, 154, 247, 0.35);
+}
+
+.ahcalc-key--eq {
+  background: rgba(125, 207, 255, 0.22);
+  color: var(--ah-accent);
+  border-color: rgba(125, 207, 255, 0.5);
+}
+
+.ahcalc-exit {
+  appearance: none;
+  flex: 0 0 auto;
+  width: 2rem;
+  height: 2rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--ah-border);
+  background: rgba(247, 118, 142, 0.12);
+  color: var(--ah-danger);
+  font-size: 1.25rem;
+  line-height: 1;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.ahcalc-exit:hover,
+.ahcalc-exit:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--ah-ring);
+}
+
+.ahcalc-exit-err {
+  display: none;
+}
